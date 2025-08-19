@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TodoType } from '../../types/todoType';
+import { WriteBox, WriteButton, WriteWrap } from './TodoWrite.styled';
 
 type TodoWriteProps = {
   hanedleTodoAdd: (newTodo: TodoType) => void;
@@ -26,15 +27,15 @@ function TodoWrite({ hanedleTodoAdd }: TodoWriteProps) {
   };
 
   return (
-    <div>
-      <input
+    <WriteWrap>
+      <WriteBox
         type="text"
         value={title}
         onChange={e => setTitle(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleSave}>등록</button>
-    </div>
+      <WriteButton onClick={handleSave}>등록</WriteButton>
+    </WriteWrap>
   );
 }
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Container, TodoSubContent, TodoTitle, TodoWarp } from './App.styled';
 import TodoList from './components/todos/TodoList';
 import TodoWrite from './components/todos/TodoWrite';
 import { TodoType } from './types/todoType';
@@ -46,20 +47,22 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>할 일 앱서비스</h1>
-      <div>
-        <TodoWrite hanedleTodoAdd={hanedleTodoAdd} />
-        <TodoList
-          todos={todos}
-          editId={editId}
-          setEditId={setEditId}
-          handleTodoEdit={handleTodoEdit}
-          handleTodoDelete={handleTodoDelete}
-          handleTodoToggle={handleTodoToggle}
-        />
-      </div>
-    </div>
+    <Container>
+      <TodoWarp>
+        <TodoTitle>My Todo_List</TodoTitle>
+        <TodoSubContent>
+          <TodoWrite hanedleTodoAdd={hanedleTodoAdd} />
+          <TodoList
+            todos={todos}
+            editId={editId}
+            setEditId={setEditId}
+            handleTodoEdit={handleTodoEdit}
+            handleTodoDelete={handleTodoDelete}
+            handleTodoToggle={handleTodoToggle}
+          />
+        </TodoSubContent>
+      </TodoWarp>
+    </Container>
   );
 }
 

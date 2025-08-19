@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import TodoDetail from './TodoDetail';
 import { TodoType } from '../../types/todoType';
+import { ListNoneTitle, ListTitle, ListUlWrap, ListWrap } from './TodoList.styled';
 
 type TodoListProps = {
   todos: TodoType[];
@@ -47,12 +48,14 @@ function TodoList({
     console.log('수정임다');
   };
   return (
-    <div>
-      <h2>할일 목록</h2>
+    <ListWrap>
+      <ListTitle>List</ListTitle>
       {todos.length === 0 ? (
-        <p>목록이 없습니다.</p>
+        <ListNoneTitle>
+          목록이 없습니다. <br />할 일을 추가하고 등록해 보세요.
+        </ListNoneTitle>
       ) : (
-        <ul>
+        <ListUlWrap>
           {todos.map(item => (
             <TodoDetail
               key={item.id}
@@ -65,9 +68,9 @@ function TodoList({
               onToggle={onToggle}
             />
           ))}
-        </ul>
+        </ListUlWrap>
       )}
-    </div>
+    </ListWrap>
   );
 }
 
