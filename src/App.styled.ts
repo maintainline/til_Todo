@@ -16,6 +16,7 @@ export const TodoWarp = styled.div`
 `;
 
 export const TodoTitle = styled.div`
+  color: #e74747ff;
   padding: 20px;
   display: flex;
   justify-content: center;

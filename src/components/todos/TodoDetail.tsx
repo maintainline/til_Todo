@@ -1,5 +1,18 @@
 import { useState } from 'react';
 import { TodoType } from '../../types/todoType';
+import {
+  DetailbackColor,
+  DetailButtonWrap,
+  DetailCancelButton,
+  DetailCheckInput,
+  DetailDeletelButton,
+  DetailEditButtonWrap,
+  DetailEditInput,
+  DetailEditSaveButton,
+  DetailSaveButton,
+  DetailSpan,
+  DetailWrap,
+} from './TodoDetail.styled';
 
 type TodoDetailProps = {
   todo: TodoType;
@@ -49,22 +62,32 @@ function TodoDetail({
   };
 
   return (
-    <li>
+    <DetailWrap>
       {isEdit ? (
         <>
-          <input type="text" value={editTitle} onChange={e => setEditTitle(e.target.value)} />
-          <button onClick={handleEditSave}>저장</button>
-          <button onClick={handleCancel}>취소</button>
+          <DetailEditInput
+            rows={2}
+            value={editTitle}
+            onChange={e => setEditTitle(e.target.value)}
+          />
+          <DetailEditButtonWrap>
+            <DetailEditSaveButton onClick={handleEditSave}>저장</DetailEditSaveButton>
+            <DetailCancelButton onClick={handleCancel}>취소</DetailCancelButton>
+          </DetailEditButtonWrap>
         </>
       ) : (
         <>
-          <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
-          <span>{todo.title}</span>
-          <button onClick={handleEdit}>수정</button>
-          <button onClick={handleDelete}>삭제</button>
+          <DetailbackColor>
+            <DetailCheckInput type="checkbox" checked={todo.completed} onChange={handleToggle} />
+            <DetailSpan>{todo.title}</DetailSpan>
+          </DetailbackColor>
+          <DetailButtonWrap>
+            <DetailSaveButton onClick={handleEdit}>수정</DetailSaveButton>
+            <DetailDeletelButton onClick={handleDelete}>삭제</DetailDeletelButton>
+          </DetailButtonWrap>
         </>
       )}
-    </li>
+    </DetailWrap>
   );
 }
 

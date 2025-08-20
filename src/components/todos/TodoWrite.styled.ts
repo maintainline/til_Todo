@@ -13,11 +13,17 @@ export const WriteBox = styled.input`
   padding: 5px;
   width: 200px;
   border-radius: 10px;
+  &:focus {
+    outline: none;
+    border: 1px solid #ffb2b2ff;
+    box-shadow: 0 0 3px #ffb2b2aa;
+  }
 `;
 export const WriteButton = styled.button`
-  background-color: #f8e4e4ff;
+  background-color: #ffbfbfff;
   padding: 4px 15px;
   border-radius: 10px;
   border: none;
-  color: #e46161ff;
+  color: #fff;
+  cursor: pointer;
 `;
