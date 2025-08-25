@@ -6,11 +6,11 @@ import { TodoType } from './types/todoType';
 
 // 더미
 const initialTodo: TodoType[] = [
-  { id: '1', title: '할일 1', completed: false },
-  { id: '2', title: '할일 2', completed: true },
-  { id: '3', title: '할일 3', completed: false },
-  { id: '4', title: '할일 4', completed: true },
-  { id: '5', title: '할일 5', completed: false },
+  // { id: '1', title: '할일 1', completed: false },
+  // { id: '2', title: '할일 2', completed: true },
+  // { id: '3', title: '할일 3', completed: false },
+  // { id: '4', title: '할일 4', completed: true },
+  // { id: '5', title: '할일 5', completed: false },
 ];
 
 function App() {
