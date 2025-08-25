@@ -1,4 +1,20 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
+export const fadeOut = keyframes`
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+`;
+export const Popup = styled.div`
+  color: #e74747ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+  font-weight: bold;
+  animation: ${fadeOut} 2s forwards;
+`;
 
 export const Container = styled.div`
   background: #fffafeff;

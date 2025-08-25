@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, TodoSubContent, TodoTitle, TodoWarp } from './App.styled';
+import { Container, Popup, TodoSubContent, TodoTitle, TodoWarp } from './App.styled';
 import TodoList from './components/todos/TodoList';
 import TodoWrite from './components/todos/TodoWrite';
 import { TodoType } from './types/todoType';
@@ -18,6 +18,9 @@ function App() {
   const [todos, setTodos] = useState<TodoType[]>([]);
   // 편집중인 id 를 관리함
   const [editId, setEditId] = useState<string | null>(null);
+
+  // 첫화면 (팝업) 만들기!
+  const [popup, setPopup] = useState(true);
 
   const hanedleTodoAdd = (newTodo: TodoType) => {
     const arr = [newTodo, ...todos];
@@ -45,6 +48,10 @@ function App() {
   useEffect(() => {
     setTodos(initialTodo);
   }, []);
+
+  if (popup) {
+    return <Popup onAnimationEnd={() => setPopup(false)}>My Todo_List📄</Popup>;
+  }
 
   return (
     <Container>
